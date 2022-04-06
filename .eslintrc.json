@@ -20,6 +20,8 @@
     "@typescript-eslint/restrict-plus-operands": "off",
     "@typescript-eslint/method-signature-style": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "array-callback-return": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "array-callback-return": "off",
+    "import/export": "off"
   }
 }
