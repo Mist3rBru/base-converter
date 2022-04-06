@@ -37,6 +37,7 @@
   "dependencies": {
     "apollo-server": "^3.6.7",
     "graphql": "^16.3.0",
+    "module-alias": "^2.2.2",
     "mongodb": "^4.5.0"
   }
 }
