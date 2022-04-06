@@ -1,15 +1,15 @@
 import { IBaseConverterService } from '@/domain/usecases'
-import { Controller, HttpResponse } from '@/presentation/protocols'
+import { IController, HttpResponse } from '@/presentation/protocols'
 import { ok, serverError } from '@/presentation/helpers/HttpResponse'
 
-export class BaseConverterController implements Controller {
+export class BaseConverterController implements IController {
   constructor (
-    private readonly baseConverter: IBaseConverterService
+    private readonly baseConverterService: IBaseConverterService
   ) {}
 
   async handle (request: BaseConverterController.Params): Promise<HttpResponse> {
     try {
-      const bases = this.baseConverter.convert(request)
+      const bases = this.baseConverterService.convert(request)
       return ok(bases)
     } catch (error) {
       return serverError(error)
