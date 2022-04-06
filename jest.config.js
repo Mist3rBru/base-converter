@@ -16,5 +16,6 @@ module.exports = {
     '@/tests/(.*)': '<rootDir>/__tests__/$1',
     '@/(.*)': '<rootDir>/src/$1'
   },
-  testPathIgnorePatterns: ['mock*']
+  testPathIgnorePatterns: ['mock*'],
+  preset: '@shelf/jest-mongodb'
 }
