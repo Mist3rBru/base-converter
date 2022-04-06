@@ -1,6 +1,6 @@
 export type HttpResponse = {
   statusCode: number
-  body: number
+  body: any
 }
 
 export interface Controller {
