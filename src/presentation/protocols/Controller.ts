@@ -3,6 +3,6 @@ export type HttpResponse = {
   body: any
 }
 
-export interface Controller {
+export interface IController {
   handle (request: any): Promise<HttpResponse>
 }
