@@ -5,7 +5,7 @@ export namespace IBaseConverterService {
     desiredBases: number[]
   }
 
-  export type Result = object
+  export type Result = object[]
 }
 
 export interface IBaseConverterService {
