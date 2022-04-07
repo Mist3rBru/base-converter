@@ -27,7 +27,7 @@ const mockRequest = (): BaseConverterController.Params => ({
 
 class BaseConverterServiceSpy implements IBaseConverterService {
   data: IBaseConverterService.Params
-  result = { 'base-16': faker.datatype.hexadecimal() }
+  result = [{ 'base-16': faker.datatype.hexadecimal() }]
   convert (data: IBaseConverterService.Params): IBaseConverterService.Result {
     this.data = data
     return this.result
