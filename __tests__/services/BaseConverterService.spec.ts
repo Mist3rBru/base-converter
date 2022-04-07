@@ -19,10 +19,10 @@ const makeSut = (): SutTypes => {
   }
 }
 
-const mockData = (): IBaseConverterService.Params => ({
+const mockData = (base: number = 10): IBaseConverterService.Params => ({
   value: faker.datatype.hexadecimal(),
   actualBase: 16,
-  desiredBases: [2, 10, 16]
+  desiredBases: [2, base, 16]
 })
 
 class BaseConverterSpy implements IBaseConverter {
@@ -39,6 +39,12 @@ class BaseConverterSpy implements IBaseConverter {
 }
 
 describe('BaseConverterService', () => {
+  it('should throw if dependency is not supported', async () => {
+    const { sut } = makeSut()
+    expect(() => { sut.convert(mockData(1)) }).toThrow()
+    expect(() => { sut.convert(mockData(36)) }).toThrow()
+  })
+
   it('should call BaseConverter with correct values', async () => {
     const { sut, baseConverterSpy } = makeSut()
     const data = mockData()
@@ -55,9 +61,9 @@ describe('BaseConverterService', () => {
     const { sut, baseConverterSpy } = makeSut()
     const data = mockData()
     const result = sut.convert(data)
-    const expected = {}
+    const expected = []
     data.desiredBases.map((base, index) => {
-      expected[`base-${base}`] = baseConverterSpy.results[index]
+      expected.push({ base, value: baseConverterSpy.results[index] })
     })
     expect(result).toEqual(expected)
   })
