@@ -1,4 +1,4 @@
-import { BaseConverter } from '@/data/BaseConverter'
+import { BaseConverter } from '@/infra/data/BaseConverter'
 import { BaseConverterController } from '@/presentation/controllers'
 import { BaseConverterService } from '@/services/usecases/BaseConverterService'
 import { makeLogControllerDecorator } from '@/main/composers/decorators'

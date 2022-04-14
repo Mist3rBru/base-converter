@@ -1,4 +1,4 @@
-import { BaseConverter } from '@/data/BaseConverter'
+import { BaseConverter } from '@/infra/data/BaseConverter'
 import { IBaseConverter } from '@/services/protocols'
 import faker from '@faker-js/faker'
 import bases from 'bases'
