@@ -1,12 +1,11 @@
 import 'module-alias/register'
-import { app, env } from '@/main/config'
-import { MongoHelper } from '@/infra/mongodb'
+import { app } from '@/main/config'
 
-MongoHelper.connect(env.MONGO_URL)
-  .then(async () => {
-    console.log('MongoDB is connected')
-    await app.listen().then(({ url }) => {
-      console.log(`🚀  Server ready at ${url}`)
-    })
+app
+  .listen()
+  .then(({ url }) => {
+    process.stdout.write(`🚀  Server running at ${url}\n`)
   })
-  .catch((error) => console.error('Server', error))
+  .catch(error => {
+    console.error(error)
+  })

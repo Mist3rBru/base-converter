@@ -10,12 +10,11 @@ module.exports = {
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
   transform: {
-    '.+\\.ts$': 'ts-jest'
+    '^.+\\.[tj]s$': ['@swc/jest']
   },
   moduleNameMapper: {
     '@/tests/(.*)': '<rootDir>/__tests__/$1',
     '@/(.*)': '<rootDir>/src/$1'
   },
-  testPathIgnorePatterns: ['mock*'],
-  preset: '@shelf/jest-mongodb'
+  testPathIgnorePatterns: ['mock*']
 }
