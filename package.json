@@ -1,23 +1,26 @@
 {
-  "name": "base-conversor",
+  "name": "base-converter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main/server.ts",
   "scripts": {
     "start": "node dist/main/server.js",
-    "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only src/main/server.ts",
+    "dev": "tsx watch src/main/server.ts",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
     "build:watch": "npm run build -- -w",
     "test": "npx jest --runInBand --no-cache",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:ci": "npm test -- --coverage"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.3.0",
+    "module-alias": "^2.2.2"
+  },
   "devDependencies": {
     "@faker-js/faker": "^6.1.2",
-    "@shelf/jest-mongodb": "^2.2.1",
+    "@swc/core": "^1.2.246",
+    "@swc/jest": "^0.2.22",
     "@types/bases": "^0.2.2",
     "@types/jest": "^27.4.1",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
@@ -29,15 +32,7 @@
     "eslint-plugin-promise": "^5.0.0",
     "git-commit-msg-linter": "^4.1.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.1.4",
-    "ts-node-dev": "^1.1.8",
-    "tsconfig-paths": "^3.14.1",
+    "tsx": "^3.9.0",
     "typescript": "^4.6.3"
-  },
-  "dependencies": {
-    "apollo-server": "^3.6.7",
-    "graphql": "^16.3.0",
-    "module-alias": "^2.2.2",
-    "mongodb": "^4.5.0"
   }
 }
