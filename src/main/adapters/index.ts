@@ -1,1 +1,1 @@
-export * from './apollo-server-resolver'
+export * from './apollo-server-resolver.js'

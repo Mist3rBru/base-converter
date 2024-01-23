@@ -1,8 +1,9 @@
-import 'module-alias/register'
-import { app } from '@/main/config'
+import { app } from '#main/config/index.js'
+import { startStandaloneServer } from '@apollo/server/standalone'
 
-app
-  .listen()
+startStandaloneServer(app, {
+  listen: { port: 4000 },
+})
   .then(({ url }) => {
     process.stdout.write(`🚀  Server running at ${url}\n`)
   })

@@ -1,14 +1,14 @@
-import { ApolloServer, gql } from 'apollo-server'
-import { adaptResolver } from '@/main/adapters/'
-import { makeBaseConverterController } from '@/main/composers/controllers'
+import { adaptResolver } from '#main/adapters/index.js'
+import { makeBaseConverterController } from '#main/composers/controllers/index.js'
+import { ApolloServer } from '@apollo/server'
 
-const typeDefs = gql`
+const typeDefs = `#graphql
   type Query {
     _: String
   }
 
   extend type Query {
-    convert (value: String!, actualBase: Int!, desiredBases: [Int!]!): [Base!]!
+    convert(value: String!, actualBase: Int!, desiredBases: [Int!]!): [Base!]!
   }
 
   type Base {
@@ -18,8 +18,10 @@ const typeDefs = gql`
 `
 const resolvers = {
   Query: {
-    convert: async (parent: any, args: any) => await adaptResolver(makeBaseConverterController(), args)
-  }
+    convert: async (parent: unknown, args: unknown[]): Promise<unknown> => {
+      return await adaptResolver(makeBaseConverterController(), args)
+    },
+  },
 }
 
 export const app = new ApolloServer({ typeDefs, resolvers })

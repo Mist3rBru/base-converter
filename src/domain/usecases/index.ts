@@ -1,1 +1,1 @@
-export * from './BaseConverterService'
+export * from './base-converter-service.js'

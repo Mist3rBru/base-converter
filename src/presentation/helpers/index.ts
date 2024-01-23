@@ -1,1 +1,1 @@
-export * from './HttpResponse'
+export * from './http-response.js'

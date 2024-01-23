@@ -1,5 +1,5 @@
 export namespace IBaseConverterService {
-  export type Params = {
+  export interface Params {
     value: string
     actualBase: number
     desiredBases: number[]
@@ -9,5 +9,5 @@ export namespace IBaseConverterService {
 }
 
 export interface IBaseConverterService {
-  convert (data: IBaseConverterService.Params): IBaseConverterService.Result
+  convert(data: IBaseConverterService.Params): IBaseConverterService.Result
 }

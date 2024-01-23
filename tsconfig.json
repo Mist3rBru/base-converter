@@ -1,13 +1,27 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "module": "commonjs",
-    "target": "es2021",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
     "esModuleInterop": true,
-    "baseUrl": "src",
+
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+    "useUnknownInCatchVariables": false,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+
+    "verbatimModuleSyntax": true,
+    "lib": ["ES2022"],
+
+    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"],
-      "@/tests/*": ["../__tests__/*"]
-    }
+      "#tests/*": ["__tests__/*"],
+      "#*": ["src/*"],
+    },
   },
 }
